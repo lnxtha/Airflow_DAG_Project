@@ -1,0 +1,6 @@
+mkdir -p airflow/dags airflow/logs airflow/plugins
+
+sudo chown -R 50000:0 ./airflow
+sudo chmod -R 775 ./airflow
+
+sudo docker compose up

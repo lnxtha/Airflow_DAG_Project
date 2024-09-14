@@ -1,0 +1,14 @@
+version: '3'
+services:
+  lnx:
+    image: apache/airflow:2.7.1  # Make sure to use the correct Airflow image
+    user: "50000:0"  # Run as the Airflow user
+    volumes:
+      - ./airflow:/opt/airflow  # Mount the airflow directory
+    ports:
+      - "8080:8080"
+    command: >
+      bash -c "airflow db init &&
+                airflow users create --username admin --password admin --firstname admin --lastname User --role Admin --email admin@example.com &&
+                airflow standalone"
+

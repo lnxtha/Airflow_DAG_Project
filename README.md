@@ -143,3 +143,11 @@ Once the container is successfully executed, you can access Airflow using the fo
 
 3. Once visible, manually trigger the DAG and ensure that it runs correctly.
 
+
+## New DAG - Scraping match data
+
+1. I have added another DAG task with an aim of scraping match data weekly and store it in Azure.
+
+   a. Firstly, `webscrape2.py` file is executed that will scrape the mtach information.
+
+   b. Secondly, `csv_to_azure.py` file is executed that will store the `.csv` file into `Azure Blob Storage`. I have used `Airflow's "Azure Blog"` connection to store `Azure blob storage's` credential that include "Azure Blob Storage Name", `"Azure access key"` and `"Azure active directory"` link. I have used `"BaseHook"` to pass connection information regarding "Azure Blob" in the script.
